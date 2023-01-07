@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    ini adalah halaman welcome
+    ini adalah halaman welcome untuk admin
 </body>
 
 </html>
