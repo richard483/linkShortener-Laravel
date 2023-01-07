@@ -1,4 +1,4 @@
-Command to start this project:
+Command to run this project:
 ```bash
 composer update
 php artisan migrate:fresh
