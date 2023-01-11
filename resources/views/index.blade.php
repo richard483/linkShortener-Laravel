@@ -3,7 +3,9 @@
 @section('title', 'Index')
 
 <body>
-    ini adalah halaman welcome untuk admin
+    ini adalah halaman welcome
 </body>
+
+</html>
 
 @endsection

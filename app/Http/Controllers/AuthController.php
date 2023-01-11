@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($validateCredentials, true)) {
             $usertype = Auth::user()->role;
-            return view('welcome');
+            return view('index');
         }
 
         return redirect()->back()->withErrors(['auth' => 'Invalid email or password']);
