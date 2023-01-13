@@ -82,7 +82,7 @@
             </div>
         </div>
     </nav> --}}
-    @if ($errors->any())
+    {{-- @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -94,8 +94,8 @@
     <div class="alert alert-success">
         {{ session()->get('message') }}
     </div>
-    @endif
-    <div class="p-5" style="background: #b5b5b5">
+    @endif --}}
+    <div class="p-5" style="background: #171923; color: white; min-height: 100vh;">
         @yield('content')
     </div>
 </body>
