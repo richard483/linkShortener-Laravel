@@ -22,14 +22,14 @@
     html,
     h1 {
         font-family: "scandia-web";
-        background: #171923;
+        /* background: #171923; */
 
     }
 
     .navbar {
         padding: 1rem 6rem;
         height: 12vh;
-        background: #171923;
+        /* background: #171923; */
 
     }
 
@@ -63,12 +63,12 @@
     }
 
     .hero {
-        background: #171923;
+        /* background: #171923; */
         gap: 2rem;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: 80vh;
+        height: 75vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -96,7 +96,37 @@
     .btn-primary:hover {
         background-color: #282c3d !important;
     }
+
+    #particles-js {
+        width: 100%;
+        height: 256vh;
+        background-color: #171923;
+        background-image: url('');
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        position: absolute;
+        /* z-index: -1; */
+    }
+
+    .illust,
+    .quote {
+        z-index: 1;
+
+    }
+
+    .why-us {
+        background: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        margin: 10rem;
+        padding: 5rem;
+    }
 </style>
+<div id="particles-js"></div>
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand me-3" href="#"><img src="{{asset('lot-nest-logo.png')}}" alt="alt-logo" height="50"></a>
@@ -132,7 +162,7 @@
                 <br>
                 Generate QR Codes
                 <br>
-                and Many More Features!
+                and Many Great Features!
                 <br>
             </h1>
             <button type="button" class="btn btn-primary">Get Started!</button>
@@ -141,9 +171,39 @@
             <img src="{{asset('asset.svg')}}" alt="alt-logo" height="500">
         </div>
     </section>
+    <section class="why-us">
+        <div class="container">
+            <h2>Why Us?</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, facilis. Cum temporibus deserunt,
+                provident, ab inventore, aspernatur reiciendis enim nisi quas natus blanditiis! Expedita illum natus, at
+                sequi veritatis pariatur nam et assumenda nemo inventore omnis distinctio laboriosam delectus quae
+                veniam? Ipsam minus ipsum pariatur molestiae at explicabo maiores praesentium, dicta accusamus nam
+                quibusdam nihil velit iure corporis deleniti adipisci libero eaque fuga ratione quasi quas? Similique
+                impedit maxime deserunt blanditiis tempore consectetur aliquid vero expedita velit consequuntur quo
+                debitis repellat autem voluptatibus, natus accusantium quia laudantium obcaecati asperiores tempora ex
+                vitae ipsa? Tenetur deleniti quas non nostrum possimus nobis reiciendis voluptates velit facilis
+                voluptate facere, culpa, aperiam cupiditate distinctio labore consequuntur. Animi molestiae suscipit
+                numquam eius iure! Numquam nulla sit aliquam voluptatibus, eligendi iure possimus doloremque corporis
+                mollitia sunt expedita, similique tempore doloribus rerum ullam totam, modi qui? Iusto impedit illum
+                explicabo blanditiis quos ipsum assumenda iste animi ipsa. Cupiditate repellendus ullam, dolorum vitae
+                cumque dignissimos! Hic quasi, animi inventore pariatur tempore, facere delectus impedit sint excepturi
+                blanditiis doloremque optio nisi aspernatur veritatis earum consequuntur eum quod? Sapiente, animi.
+                Fuga, possimus! Iure quas explicabo eveniet obcaecati quaerat porro neque officiis? Deserunt sed esse
+                amet tempora nulla possimus deleniti similique magnam expedita accusamus molestias porro unde, hic, rem
+                asperiores. Fugit, velit! Laborum alias tempore vel ea voluptatem. Aliquam a odit iste expedita alias
+                deleniti impedit distinctio qui, explicabo autem laboriosam officia aliquid laborum maiores, cumque
+                laudantium consectetur tempore vitae dolore suscipit non officiis, obcaecati eum ut. In nulla magni,
+                excepturi nihil deserunt eligendi inventore molestias modi!
+            </p>
+        </div>
+    </section>
 </body>
 <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>
+<script src="{{asset('js/lib/particles.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+
 
 </html>
