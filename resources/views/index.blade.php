@@ -119,21 +119,40 @@
     }
 
     .why-us {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 5rem;
+    }
+
+    .why-contain {
         background: rgba(255, 255, 255, 0.4);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
-        margin: 10rem;
-        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem;
     }
 
     .contain h2,
     .contain p,
     .our-partners h2,
-    #separator-line h6 {
+    #separator-line h6,
+    .why-us h2,
+    .why-contain h3 {
         font-family: "scandia-web";
+    }
+
+    .why-contain h3 {
+        color: #E7E8F2;
+        font-size: 2rem;
+        font-weight: 700;
     }
 
     .our-partners {
@@ -143,7 +162,7 @@
         justify-content: center;
         align-items: center;
         backdrop-filter: blur(4px);
-        margin: 0 5rem;
+        margin: 0 10rem 10rem;
     }
 
     .brand-bg {
@@ -153,7 +172,8 @@
         border-radius: 0.5rem;
     }
 
-    .our-partners h2 {
+    .our-partners h2,
+    .why-us h2 {
         color: #E7E8F2;
         font-size: 3rem;
     }
@@ -268,30 +288,20 @@
     </section>
 
     <section class="why-us">
-        <div class="contain">
-            <h2>Why Us?</h2>
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, facilis. Cum temporibus deserunt,
-                provident, ab inventore, aspernatur reiciendis enim nisi quas natus blanditiis! Expedita illum natus, at
-                sequi veritatis pariatur nam et assumenda nemo inventore omnis distinctio laboriosam delectus quae
-                veniam? Ipsam minus ipsum pariatur molestiae at explicabo maiores praesentium, dicta accusamus nam
-                quibusdam nihil velit iure corporis deleniti adipisci libero eaque fuga ratione quasi quas? Similique
-                impedit maxime deserunt blanditiis tempore consectetur aliquid vero expedita velit consequuntur quo
-                debitis repellat autem voluptatibus, natus accusantium quia laudantium obcaecati asperiores tempora ex
-                vitae ipsa? Tenetur deleniti quas non nostrum possimus nobis reiciendis voluptates velit facilis
-                voluptate facere, culpa, aperiam cupiditate distinctio labore consequuntur. Animi molestiae suscipit
-                numquam eius iure! Numquam nulla sit aliquam voluptatibus, eligendi iure possimus doloremque corporis
-                mollitia sunt expedita, similique tempore doloribus rerum ullam totam, modi qui? Iusto impedit illum
-                explicabo blanditiis quos ipsum assumenda iste animi ipsa. Cupiditate repellendus ullam, dolorum vitae
-                cumque dignissimos! Hic quasi, animi inventore pariatur tempore, facere delectus impedit sint excepturi
-                blanditiis doloremque optio nisi aspernatur veritatis earum consequuntur eum quod? Sapiente, animi.
-                Fuga, possimus! Iure quas explicabo eveniet obcaecati quaerat porro neque officiis? Deserunt sed esse
-                amet tempora nulla possimus deleniti similique magnam expedita accusamus molestias porro unde, hic, rem
-                asperiores. Fugit, velit! Laborum alias tempore vel ea voluptatem. Aliquam a odit iste expedita alias
-                deleniti impedit distinctio qui, explicabo autem laboriosam officia aliquid laborum maiores, cumque
-                laudantium consectetur tempore vitae dolore suscipit non officiis, obcaecati eum ut. In nulla magni,
-                excepturi nihil deserunt eligendi inventore molestias modi!
-            </p>
+        <h2 class="mb-5">Why Us?</h2>
+        <div class="d-flex justify-content-center mb-3" style="gap: 2rem">
+            <div class="why-contain text-center ">
+                <img src="{{asset('assets/easy.svg')}}" alt="" style="width: 16rem">
+                <h3 class="mt-5">Easy to use</h3>
+            </div>
+            <div class="why-contain text-center">
+                <img src="{{asset('assets/premium features.svg')}}" alt="" style="width: 16rem">
+                <h3 class="mt-5">Fully protected</h3>
+            </div>
+            <div class="why-contain text-center">
+                <img src="{{asset('assets/save-mone.svg')}}" alt="" style="width: 16rem">
+                <h3 class="mt-5">Save more<br>money!</h3>
+            </div>
         </div>
     </section>
 </body>
