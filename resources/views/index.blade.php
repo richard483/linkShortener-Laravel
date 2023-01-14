@@ -8,239 +8,8 @@
     <title>Lot.Nest - Link Shortener</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/index.css')}}">
 </head>
-<style>
-    @font-face {
-        font-family: "scandia-web";
-        src: url("https://use.typekit.net/af/716155/00000000000000007735dd24/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/716155/00000000000000007735dd24/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/716155/00000000000000007735dd24/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
-        font-display: auto;
-        font-style: normal;
-        font-weight: 700;
-        font-stretch: normal;
-    }
-
-    @font-face {
-        font-family: "scandia-line-web";
-        src: url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-        font-display: auto;
-        font-style: normal;
-        font-weight: 400;
-        font-stretch: normal;
-    }
-
-    * {
-        font-family: "scandia-web";
-    }
-
-    nav {
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.021);
-    }
-
-    .navbar {
-        padding: 1rem 6rem;
-        height: 12vh;
-    }
-
-    .nav-link {
-        color: #E93B30;
-        display: inline-block;
-        position: relative;
-        font-weight: 500
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #E7E8F2;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-    }
-
-    .nav-link:hover::after {
-        color: #E7E8F2;
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }
-
-    .nav-link:hover {
-        color: #E7E8F2;
-    }
-
-    .hero {
-        gap: 2rem;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 75vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .hero h1 {
-        color: rgb(231, 232, 242);
-        font-size: 3rem;
-        font-weight: 700;
-        text-align: start;
-    }
-
-    .quote {
-        text-align: start;
-        justify-content: start;
-    }
-
-    .btn-primary {
-        background-color: #E93B30;
-        border: none;
-        font-size: 1.5rem
-    }
-
-    .btn-primary:hover {
-        background-color: #282c3d !important;
-    }
-
-    #particles-js {
-        width: 100%;
-        height: 150rem;
-        background-color: #171923;
-        background-image: url('');
-        background-size: cover;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        position: absolute;
-    }
-
-    .illust,
-    .quote,
-    .contain {
-        z-index: 1;
-
-    }
-
-    .why-us {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: 0 5rem 5rem;
-    }
-
-    .why-contain {
-        background: rgba(255, 255, 255, 0.4);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 2rem;
-    }
-
-    .why-contain h3 {
-        color: #E7E8F2;
-        font-size: 2rem;
-        font-weight: 700;
-    }
-
-    .our-partners {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        backdrop-filter: blur(4px);
-        margin: 0 10rem 10rem;
-    }
-
-    .brand-bg {
-        padding: 1rem 2rem;
-        backdrop-filter: blur(2px);
-        background-color: rgba(231, 232, 242, 0.503);
-        border-radius: 0.5rem;
-    }
-
-    .our-partners h2,
-    .why-us h2 {
-        color: #E7E8F2;
-        font-size: 3rem;
-    }
-
-    #separator-line {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 5rem;
-    }
-
-    #separator-line h6 {
-        color: #E7E8F2;
-    }
-
-    .about-us {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        background: rgba(23, 25, 35, 0.25);
-        padding: 2rem 5rem 5rem;
-    }
-
-    .about-us h3,
-    .about-us p {
-        color: #E7E8F2;
-        text-align: center;
-    }
-
-    footer {
-        position: relative;
-        display: flex;
-        background-color: #252A37;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-    }
-
-    footer p {
-        margin: 0;
-        padding: 0;
-        font-family: 'scandia-line-web';
-        color: #E7E8F2;
-
-    }
-
-    .section-content {
-        width: 100%;
-        background-color: #252A37;
-        color: #E7E8F2;
-        padding: 2rem 5rem;
-        position: relative;
-        display: flex;
-        justify-content: space-between
-    }
-
-    .credit {
-        font-size: 0.75rem;
-        margin-bottom: 1rem;
-    }
-</style>
 <div id="particles-js"></div>
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
@@ -248,18 +17,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#about-us">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Why Us?</a>
+                    <a class="nav-link" href="#why-us">Why Us?</a>
                 </li>
             </ul>
             <ul class="d-flex navbar-nav gap-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up Free</a>
+                    <a class="nav-link" href="/register">Sign Up Free</a>
                 </li>
             </ul>
 
@@ -280,7 +49,7 @@
                 and Many Great Features!
                 <br>
             </h1>
-            <a class="btn btn-primary" href="https://www.youtube.com/">Get Started!</a>
+            <a class="btn btn-primary" href="/register">Get Started!</a>
         </div>
         <div class="illust">
             <img src="{{asset('asset.svg')}}" alt="alt-logo" height="500">
@@ -336,7 +105,7 @@
         </div>
     </section>
 
-    <section class="why-us">
+    <section class="why-us" id="why-us">
         <h2 class="mb-5">Why Us?</h2>
         <div class="d-flex justify-content-center mb-3" style="gap: 2rem">
             <div class="why-contain text-center ">
@@ -354,7 +123,7 @@
         </div>
     </section>
 
-    <section class="about-us">
+    <section class="about-us" id="about-us">
         <h3 class="mb-5">About Us</h3>
         <p style="font-family: 'scandia-line-web'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nobis
             excepturi non asperiores, doloremque ex
