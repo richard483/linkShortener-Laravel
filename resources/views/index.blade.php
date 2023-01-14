@@ -19,8 +19,16 @@
         font-stretch: normal;
     }
 
-    html,
-    h1 {
+    @font-face {
+        font-family: "scandia-line-web";
+        src: url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+        font-display: auto;
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: normal;
+    }
+
+    * {
         font-family: "scandia-web";
     }
 
@@ -90,7 +98,6 @@
     }
 
     .btn-primary {
-        font-family: "scandia-web";
         background-color: #E93B30;
         border: none;
         font-size: 1.5rem
@@ -102,7 +109,7 @@
 
     #particles-js {
         width: 100%;
-        height: 256vh;
+        height: 150rem;
         background-color: #171923;
         background-image: url('');
         background-size: cover;
@@ -124,7 +131,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin: 0 5rem;
+        margin: 0 5rem 5rem;
     }
 
     .why-contain {
@@ -138,15 +145,6 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 2rem;
-    }
-
-    .contain h2,
-    .contain p,
-    .our-partners h2,
-    #separator-line h6,
-    .why-us h2,
-    .why-contain h3 {
-        font-family: "scandia-web";
     }
 
     .why-contain h3 {
@@ -190,6 +188,57 @@
 
     #separator-line h6 {
         color: #E7E8F2;
+    }
+
+    .about-us {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        background: rgba(23, 25, 35, 0.25);
+        padding: 2rem 5rem 5rem;
+    }
+
+    .about-us h3,
+    .about-us p {
+        color: #E7E8F2;
+        text-align: center;
+    }
+
+    footer {
+        position: relative;
+        display: flex;
+        background-color: #252A37;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    footer p {
+        margin: 0;
+        padding: 0;
+        font-family: 'scandia-line-web';
+        color: #E7E8F2;
+
+    }
+
+    .section-content {
+        width: 100%;
+        background-color: #252A37;
+        color: #E7E8F2;
+        padding: 2rem 5rem;
+        position: relative;
+        display: flex;
+        justify-content: space-between
+    }
+
+    .credit {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
     }
 </style>
 <div id="particles-js"></div>
@@ -304,7 +353,39 @@
             </div>
         </div>
     </section>
+
+    <section class="about-us">
+        <h3 class="mb-5">About Us</h3>
+        <p style="font-family: 'scandia-line-web'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nobis
+            excepturi non asperiores, doloremque ex
+            accusantium alias totam, libero distinctio eum voluptatum inventore, vitae dolorum! Enim dolore id facilis,
+            nemo recusandae consectetur suscipit vero eaque iste? Temporibus obcaecati blanditiis dolorem, dicta est
+            enim qui fuga illo excepturi odio. Voluptatem dicta molestiae eos veritatis. Aliquam reprehenderit ipsa
+            officia autem omnis animi, minima accusamus praesentium rem, ipsum consequatur voluptas neque? Eius eum,
+            illum sunt illo deleniti hic rerum magni voluptas vitae corrupti, sit sequi culpa ab possimus earum magnam
+            mollitia ea doloribus, ut commodi corporis perferendis! Provident itaque ullam sit amet est accusantium eum
+            qui fugiat excepturi architecto veritatis, numquam magnam sunt deserunt porro aspernatur nobis. Incidunt
+            officiis necessitatibus fuga, esse repellendus expedita dolorum sapiente, culpa nobis maxime, aliquid
+            similique?</p>
+
+    </section>
 </body>
+
+<footer>
+    <div class=" section-content">
+
+        <section class="left-footer">
+            <img class="mb-3" src="{{asset('lot-nest-logo.png')}}" alt="" style="width: 12rem">
+            <p style="font-family: 'scandia-line-web'">Lot Nest, Inc.<br>1234 Main Street<br>Anytown,
+                USA<br>123-456-7890
+            </p>
+        </section>
+        {{-- <section class="right-footer">
+            <h3>This Web built using:</h3>
+        </section> --}}
+    </div>
+    <p class="credit">©2023 Lot.Nest All Right Reserved.<br>Create with ❤ by beenuz Lot.Nest</p>
+</footer>
 <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
 </script>
