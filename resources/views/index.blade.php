@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LotNes - Link Shortener</title>
+    <title>Lot.Nest - Link Shortener</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -22,21 +22,24 @@
     html,
     h1 {
         font-family: "scandia-web";
-        /* background: #171923; */
+    }
 
+    nav {
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.021);
     }
 
     .navbar {
         padding: 1rem 6rem;
         height: 12vh;
-        /* background: #171923; */
-
     }
 
     .nav-link {
         color: #E93B30;
         display: inline-block;
         position: relative;
+        font-weight: 500
     }
 
     .nav-link::after {
@@ -63,7 +66,6 @@
     }
 
     .hero {
-        /* background: #171923; */
         gap: 2rem;
         background-size: cover;
         background-position: center;
@@ -72,6 +74,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 2rem;
     }
 
     .hero h1 {
@@ -106,11 +109,11 @@
         background-position: 50% 50%;
         background-repeat: no-repeat;
         position: absolute;
-        /* z-index: -1; */
     }
 
     .illust,
-    .quote {
+    .quote,
+    .contain {
         z-index: 1;
 
     }
@@ -124,6 +127,49 @@
         border: 1px solid rgba(255, 255, 255, 0.18);
         margin: 10rem;
         padding: 5rem;
+    }
+
+    .contain h2,
+    .contain p,
+    .our-partners h2,
+    #separator-line h6 {
+        font-family: "scandia-web";
+    }
+
+    .our-partners {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(4px);
+        margin: 0 5rem;
+    }
+
+    .brand-bg {
+        padding: 1rem 2rem;
+        backdrop-filter: blur(2px);
+        background-color: rgba(231, 232, 242, 0.503);
+        border-radius: 0.5rem;
+    }
+
+    .our-partners h2 {
+        color: #E7E8F2;
+        font-size: 3rem;
+    }
+
+    #separator-line {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+    }
+
+    #separator-line h6 {
+        color: #E7E8F2;
     }
 </style>
 <div id="particles-js"></div>
@@ -165,14 +211,64 @@
                 and Many Great Features!
                 <br>
             </h1>
-            <button type="button" class="btn btn-primary">Get Started!</button>
+            <a class="btn btn-primary" href="https://www.youtube.com/">Get Started!</a>
         </div>
         <div class="illust">
             <img src="{{asset('asset.svg')}}" alt="alt-logo" height="500">
         </div>
     </section>
+
+    <div id="separator-line">
+        <img class="mb-3" src="{{asset('assets/scroll-down.svg')}}" alt="arrow-down" style="width: 1.5rem">
+        <h6>Scroll down</h6>
+    </div>
+
+    <section class="our-partners">
+        <h2 class="mb-5">Our Partners</h2>
+        <div class="d-flex justify-content-around mb-3" style="gap: 1.5rem">
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/disney.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/st-jude.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/twitch.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/warner-bros.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/wwe.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/bankrate.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/the-new-york-times.png')}}" alt="" style="height: 2rem">
+            </div>
+        </div>
+        <div class="d-flex justify-content-around" style="gap: 2rem">
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/mailgun.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/datacamp.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/mongo.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/vscode.png')}}" alt="" style="height: 2rem">
+            </div>
+            <div class="brand-bg">
+                <img src="{{asset('assets/partners/codespaces.png')}}" alt="" style="height: 2rem">
+            </div>
+        </div>
+    </section>
+
     <section class="why-us">
-        <div class="container">
+        <div class="contain">
             <h2>Why Us?</h2>
             <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis, facilis. Cum temporibus deserunt,
