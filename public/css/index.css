@@ -1,0 +1,237 @@
+@font-face {
+    font-family: "scandia-web";
+    src: url("https://use.typekit.net/af/716155/00000000000000007735dd24/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+            format("woff2"),
+        url("https://use.typekit.net/af/716155/00000000000000007735dd24/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+            format("woff"),
+        url("https://use.typekit.net/af/716155/00000000000000007735dd24/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+            format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: "scandia-line-web";
+    src: url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+            format("woff2"),
+        url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+            format("woff"),
+        url("https://use.typekit.net/af/3cdb9c/00000000000000007735db09/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+            format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+}
+
+* {
+    font-family: "scandia-web";
+}
+
+nav {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.021);
+}
+
+.navbar {
+    padding: 1rem 6rem;
+    height: 12vh;
+}
+
+.nav-link {
+    color: #e93b30;
+    display: inline-block;
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e7e8f2;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover::after {
+    color: #e7e8f2;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link:hover {
+    color: #e7e8f2;
+}
+
+.hero {
+    gap: 2rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    color: rgb(231, 232, 242);
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: start;
+}
+
+.quote {
+    text-align: start;
+    justify-content: start;
+}
+
+.btn-primary {
+    background-color: #e93b30;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #282c3d !important;
+}
+
+#particles-js {
+    width: 100%;
+    height: 150rem;
+    background-color: #171923;
+    background-image: url("");
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.illust,
+.quote,
+.contain {
+    z-index: 1;
+}
+
+.why-us {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 5rem 5rem;
+}
+
+.why-contain {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.why-contain h3 {
+    color: #e7e8f2;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.our-partners {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    margin: 0 10rem 10rem;
+}
+
+.brand-bg {
+    padding: 1rem 2rem;
+    backdrop-filter: blur(2px);
+    background-color: rgba(231, 232, 242, 0.503);
+    border-radius: 0.5rem;
+}
+
+.our-partners h2,
+.why-us h2 {
+    color: #e7e8f2;
+    font-size: 3rem;
+}
+
+#separator-line {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+#separator-line h6 {
+    color: #e7e8f2;
+}
+
+.about-us {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(23, 25, 35, 0.25);
+    padding: 2rem 5rem 5rem;
+}
+
+.about-us h3,
+.about-us p {
+    color: #e7e8f2;
+    text-align: center;
+}
+
+footer {
+    position: relative;
+    display: flex;
+    background-color: #252a37;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+    font-family: "scandia-line-web";
+    color: #e7e8f2;
+}
+
+.section-content {
+    width: 100%;
+    background-color: #252a37;
+    color: #e7e8f2;
+    padding: 2rem 5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.credit {
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}

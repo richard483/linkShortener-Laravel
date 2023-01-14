@@ -24,6 +24,7 @@ Route::post('/register', AuthController::class . '@register')->name('register');
 Route::get('/go/{destination}', ShortLinkController::class . '@go')->name('go');
 
 
+Route::get('/', Controller::class . '@index')->name('index');
 
 Route::middleware('auth.admin')->group(function () {
     Route::get('/admin', function () {
@@ -33,7 +34,6 @@ Route::middleware('auth.admin')->group(function () {
 
 
 Route::middleware('auth.member')->group(function () {
-    Route::get('/', Controller::class . '@index')->name('index');
     Route::get('/shortLink', ShortLinkController::class . '@index')->name('shortLink.index');
     Route::post('/shortLink', ShortLinkController::class . '@store')->name('shortLink.store');
 });
