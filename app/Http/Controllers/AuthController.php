@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\User;
+use App\Notifications\WelcomeNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -60,6 +63,7 @@ class AuthController extends Controller
         $user->dob = $request->date;
         try {
             $user->save();
+            Mail::to($user->email)->send(new WelcomeEmail($user));
         } catch (\Exception $e) {
             dd($e);
             return redirect()->back()->withErrors(['auth' => 'Email already exists']);
