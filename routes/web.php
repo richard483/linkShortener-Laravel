@@ -39,6 +39,7 @@ Route::middleware('auth.admin')->group(function () {
 Route::middleware('auth.member')->group(function () {
     Route::get('/shortLink', ShortLinkController::class . '@index')->name('shortLink.index');
     Route::post('/shortLink', ShortLinkController::class . '@store')->name('shortLink.store');
+    
 });
 Route::middleware(['auth'])->group(function(){
     Route::get('/Profile',[AuthController::class,'ProfileDetail'])->name('Profile');
