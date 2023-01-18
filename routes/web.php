@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ShortLinkController;
@@ -27,9 +28,10 @@ Route::get('/go/{destination}', ShortLinkController::class . '@go')->name('go');
 Route::get('/', Controller::class . '@index')->name('index');
 
 Route::middleware('auth.admin')->group(function () {
-    Route::get('/admin', function () {
-        return view('admin_welcome');
-    });
+    Route::get('/admin', AdminController::class . '@index')->name('admin.index');
+    Route::get('/delete/{id}', AdminController::class . '@deleteUser')->name('user.delete');
+    Route::get('/restore/{id}', AdminController::class . '@restoreUser')->name('user.restore');
+    Route::post('/user/{id}', AdminController::class . '@editUser')->name('user.edit');
 });
 
 
