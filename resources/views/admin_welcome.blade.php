@@ -86,9 +86,9 @@
                 <td>
                     <input type="submit" value="Edit" class="edit">
                     @if ($user->id != Auth::user()->id && $user->trashed() == false)
-                    <a href="{{route('user.delete', $user->id)}}"><button class="delete">Delete</button></a>
+                    <a href="{{route('user.delete', $user->id)}}" class="delete">Delete</a>
                     @elseif ($user->trashed())
-                    <a href="{{route('user.restore', $user->id)}}"><button class="delete">Restore</button></a>
+                    <a href="{{route('user.restore', $user->id)}}" class="delete">Restore</a>
                     @endif
                 </td>
             </form>
