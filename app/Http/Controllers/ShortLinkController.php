@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\ShortLink;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShortLinkController extends Controller
 {
+    public function home()
+    {
+        $shortLink = ShortLink::where('user_id', Auth::user()->id);
+
+        return view('Homepage', ['shortLinks' => $shortLink]);
+    }
     public function index()
     {
         return view('create_new');

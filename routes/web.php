@@ -26,6 +26,8 @@ Route::get('/go/{destination}', ShortLinkController::class . '@go')->name('go');
 
 Route::get('/', Controller::class . '@index')->name('index');
 
+Route::get('/home', ShortLinkController::class.'@home');
+
 Route::middleware('auth.admin')->group(function () {
     Route::get('/admin', function () {
         return view('admin_welcome');
