@@ -13,7 +13,7 @@
         padding: 5px;
         width: 100%;
     }
-    
+
     .field-input:focus {
         outline: 2px solid #E93B30;
     }
@@ -25,7 +25,7 @@
     .check-input:checked {
         background-color: #E93B30;
     }
-    
+
     .submit {
         background: #E93B30;
         border: none;
@@ -39,6 +39,7 @@
     }
 
 </style>
+
 <section style="width: 50%; display: flex; flex-direction: column; margin: auto; justify-content: center; align-items: center;">
     <span style="font-size: 5vw;">Login Lot<span style="color: #E93B30">.</span>Nest</span>
     <form action="{{route('login')}}" method="POST" class="mt-3">

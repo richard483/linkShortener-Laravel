@@ -29,13 +29,21 @@ Route::get('/', Controller::class . '@index')->name('index');
 Route::get('/home', ShortLinkController::class.'@home');
 
 Route::middleware('auth.admin')->group(function () {
-    Route::get('/admin', function () {
-        return view('admin_welcome');
-    });
+    Route::get('/admin', AdminController::class . '@index')->name('admin.index');
+    Route::get('/delete/{id}', AdminController::class . '@deleteUser')->name('user.delete');
+    Route::get('/restore/{id}', AdminController::class . '@restoreUser')->name('user.restore');
+    Route::post('/user/{id}', AdminController::class . '@editUser')->name('user.edit');
+    // Route::post('/notify/{id}', AdminController::class . '@notifyUser')->name('user.notify');
 });
 
 
 Route::middleware('auth.member')->group(function () {
     Route::get('/shortLink', ShortLinkController::class . '@index')->name('shortLink.index');
     Route::post('/shortLink', ShortLinkController::class . '@store')->name('shortLink.store');
+    
+});
+Route::middleware(['auth'])->group(function(){
+    Route::get('/Profile',[AuthController::class,'ProfileDetail'])->name('Profile');
+    Route::get('/UpdateProfile/{id}',[AuthController::class,'getUpdate']);
+    Route::post('/UpdateProfile/{id}',[AuthController::class,'updateProfile']);
 });

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('role')->default('member');
             $table->date('dob');
+            $table->date('deleted_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

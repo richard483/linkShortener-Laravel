@@ -48,4 +48,11 @@ class ShortLinkController extends Controller
 
         return redirect($url);
     }
+
+    public function AddNew()
+    {
+        
+
+    }
+
 }

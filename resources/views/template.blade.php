@@ -10,79 +10,7 @@
 </head>
 
 <body>
-    {{-- <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid px-5">
-            <a class="navbar-brand" href="/">Barbatos Shop</a>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Category
-                        </a>
-                        <ul class="dropdown-menu">
-                            @foreach ($categories as $category)
-                            <li><a class="dropdown-item" href="/category/{{$category->id}}">{{$category->name}}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        @if (Auth::user()!=null && Auth::user()->role == 'admin')
-                        <a class="nav-link ms-1" href="/showproduct">Manage Product</a>
-                        @endif
-                    </li>
-                </ul>
-                <ul class="d-flex navbar-nav ">
-                    @auth
-                    @if (Auth::user()->role == 'admin')
-                    <li class="nav-item dropdown dropstart">
-                        <a class="nav-link dropdown-toggle" role="button" aria-expanded="false"
-                            data-bs-toggle="dropdown">
-                            {{ Auth::user()->name }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <input class="dropdown-item" type="submit" value="Logout">
-                            </form>
-                            <a class="dropdown-item" href="/profile">Profile</a>
-                        </ul>
-                    </li>
-                    @elseif (Auth::user()->role == 'member')
-                    <li class="nav-item">
-                        <a class="nav-link " href="/showcart" role="button" aria-expanded="false">
-                            <img src="{{ asset('general/cart.svg') }}" alt="cart" width="24">
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false"
-                            data-bs-toggle="dropdown">
-                            {{ Auth::user()->name }}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <form action="/logout" method="POST">
-                                @csrf
-                                <input class="dropdown-item" type="submit" value="Logout">
-                            </form>
-                            <a class="dropdown-item" href="/profile">Profile</a>
-                            <a class="dropdown-item" href="/history">History</a>
-                        </ul>
-                    </li>
-                    @endif
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
-                    </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav> 
-    @if ($errors->any())
+    {{-- @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -95,6 +23,8 @@
         {{ session()->get('message') }}
     </div>
     @endif --}}
+
+    
     <div class="p-5" style="background: #171923; color: white; min-height: 100vh;">
         @yield('content')
     </div>

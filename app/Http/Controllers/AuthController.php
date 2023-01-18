@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\User;
+use App\Notifications\WelcomeNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -60,10 +63,37 @@ class AuthController extends Controller
         $user->dob = $request->date;
         try {
             $user->save();
+            Mail::to($user->email)->send(new WelcomeEmail($user));
         } catch (\Exception $e) {
             dd($e);
             return redirect()->back()->withErrors(['auth' => 'Email already exists']);
         }
         return redirect()->route('loginPage');
+    }
+    public function ProfileDetail(){
+        $users = Auth::user();
+        return view('Profile', ['users'=>$users]);
+    }
+    public function getUpdate($id){
+        $users = Auth::user();
+        $find_user = User::find($id);
+        return view('UpdateProfile',['users'=>$users,'find_user'=>$find_user]);
+    }
+    public function updateProfile(Request $request, $id){
+        $users = User::all();
+         $request->validate([
+
+            'name' => 'required|min:5',
+            'email' => 'required|email',
+            'gender' => 'required',
+            'date' => 'required|date|before:today|after:1900-01-01',
+        ]);
+        $edit = User::find($id);
+        $edit->name = $request->name;
+        $edit->email = $request->email;
+        $edit->gender = $request->gender;
+        $edit->dob = $request->date;
+        $edit->save();
+        return redirect()->route('Profile',['users'=>$users]);
     }
 }

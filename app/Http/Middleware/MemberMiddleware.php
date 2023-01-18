@@ -20,6 +20,10 @@ class MemberMiddleware
         if (!Auth::check() || Auth::user()->role != 'member') {
             return abort(401);
         }
+        if (Auth::user()->deleted_at != null) {
+            return abort(403);
+        }
+
         return $next($request);
     }
 }
