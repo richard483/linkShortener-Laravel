@@ -32,6 +32,7 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/delete/{id}', AdminController::class . '@deleteUser')->name('user.delete');
     Route::get('/restore/{id}', AdminController::class . '@restoreUser')->name('user.restore');
     Route::post('/user/{id}', AdminController::class . '@editUser')->name('user.edit');
+    // Route::post('/notify/{id}', AdminController::class . '@notifyUser')->name('user.notify');
 });
 
 
