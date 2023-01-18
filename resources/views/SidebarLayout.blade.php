@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lot.Nest</title>
+    <title>@yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous" defer></script>
@@ -16,20 +16,22 @@
                 <img src="{{asset('lot-nest-logo.png')}}" alt="alt-logo" height="50">
             </a>
             <li class="d-flex align-items-center mt-3" style="list-style:none;">
-                <button type="button" class="btn btn-lg" style="background: #E93B30; width:100%">Create New</button>
+                <a href="/shortLink">
+                    <button type="button" class="btn btn-lg" style="background: #E93B30; width:100%">Create New</button>
+                </a>
             </li>
             <hr>
             <div class="mb-auto">
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-black" style="background: #E93B30;" aria-current="page">
+                        <a href="/home" class="nav-link text-black" style="background: #E93B30;" aria-current="page">
                             <img src="{{asset('Logo link.png')}}"class="bi pe-none me-2">
                             Home
                         </a>
                     </li>
                     <hr>
                     <li>
-                        <a href="#" class="nav-link text-black" style="background: #E93B30;">
+                        <a href="/Profile" class="nav-link text-black" style="background: #E93B30;">
                             <img src="{{asset('Settings-icon.png')}}"class="bi pe-none me-2">
                             Settings
                         </a>

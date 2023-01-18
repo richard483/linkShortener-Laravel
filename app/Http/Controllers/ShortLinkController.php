@@ -10,10 +10,10 @@ class ShortLinkController extends Controller
 {
     public function home()
     {
-        $shortLink = ShortLink::where('user_id', Auth::user()->id);
-
+        $shortLink = ShortLink::where('user_id', Auth::user()->id)->get();
         return view('Homepage', ['shortLinks' => $shortLink]);
     }
+    
     public function index()
     {
         return view('create_new');
@@ -34,7 +34,7 @@ class ShortLinkController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('index')->with('success', 'Short link generated successfully');
+        return redirect('home')->with('success', 'Short link generated successfully');
     }
 
     public function go($destination)
