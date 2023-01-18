@@ -95,6 +95,8 @@
         {{ session()->get('message') }}
     </div>
     @endif --}}
+
+    
     <div class="p-5" style="background: #171923; color: white; min-height: 100vh;">
         @yield('content')
     </div>
