@@ -10,7 +10,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::withTrashed()->get()->sortByDesc('deleted_at');
-        return view('admin_welcome', ['users' => $users]);
+        return view('admin.admin_welcome', ['users' => $users]);
     }
 
     public function deleteUser($id)
@@ -40,13 +40,4 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'User: ' . $user->name . ' restored successfully');
     }
-
-    // public function notifyUser($id)
-    // {
-    //     $user = User::where('id', $id)->first();
-
-    //     // $user->notify(new \App\Notifications\NotifyUser());
-
-    //     return redirect()->back()->with('success', 'User: ' . $user->name . ' notified successfully');
-    // }
 }

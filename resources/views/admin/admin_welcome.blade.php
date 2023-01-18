@@ -13,7 +13,7 @@
         color: white;
         padding: 5px;
     }
-    
+
     .field-input:focus {
         outline: 2px solid #E93B30;
     }
@@ -38,16 +38,36 @@
     .delete {
         background: #E93B30;
         border: none;
-        padding: 5px 15px;
+        padding: 0.5rem;
         border-radius: 4px;
         color: white;
+        text-decoration: none;
     }
 
     .delete:hover {
         background: #b93127;
+        color: white;
+        text-decoration: none;
     }
 
-    table, td, th {
+    .restore:hover {
+        background: #2766b9;
+        color: white;
+        text-decoration: none;
+    }
+
+    .restore {
+        background: #4681ce;
+        border: none;
+        padding: 0.5rem;
+        border-radius: 4px;
+        color: white;
+        text-decoration: none;
+    }
+
+    table,
+    td,
+    th {
         border: 1px solid white;
     }
 
@@ -69,7 +89,7 @@
             <th>Action</th>
         </tr>
 
-        
+
         @foreach ($users as $user)
         <tr>
             <form action="{{route('user.edit', $user->id)}}" method="post" style="margin: 5px;">
@@ -78,7 +98,8 @@
                     <input type="text" name="name" value="{{$user->name}}" class="field-input" style="width: 100%;">
                 </td>
                 <td>
-                    <select name="role" value="{{$user->role}}" {{$user->id == Auth::user()->id ? 'disabled': ''}} class="field-input" style="width: 100%;">
+                    <select name="role" value="{{$user->role}}" {{$user->id == Auth::user()->id ? 'disabled': ''}}
+                        class="field-input" style="width: 100%;">
                         <option value="member" {{$user->role == "member" ? 'selected': ''}}>Member</option>
                         <option value="admin" {{$user->role == "admin" ? 'selected': ''}}>Admin</option>
                     </select>
@@ -88,7 +109,7 @@
                     @if ($user->id != Auth::user()->id && $user->trashed() == false)
                     <a href="{{route('user.delete', $user->id)}}" class="delete">Delete</a>
                     @elseif ($user->trashed())
-                    <a href="{{route('user.restore', $user->id)}}" class="delete">Restore</a>
+                    <a href="{{route('user.restore', $user->id)}}" class="restore">Restore</a>
                     @endif
                 </td>
             </form>
