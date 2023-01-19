@@ -19,6 +19,11 @@ class ShortLinkController extends Controller
         return view('create_new');
     }
 
+    public function search(Request $request){
+        $shortLinks = ShortLink::where('name', 'like', '%' . $request->search . '%')->get();
+        return view('Homepage', compact('shortLinks'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([

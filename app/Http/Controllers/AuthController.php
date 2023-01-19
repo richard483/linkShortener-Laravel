@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
+    public function logout() {
+        Auth::logout();
+        return redirect('/login');
+    }
+
     public function loginPage()
     {
         return view('auth.login');
@@ -20,12 +25,10 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $shortLink = ShortLink::where('user_id', Auth::user()->id)->get();
         $validateCredentials = $request->validate([
             'email' => 'required|email|max:255',
             'password' => 'required',
         ]);
-
         if ($request->remember) {
             Cookie::queue('email_cookie', $request->email, 120);
             Cookie::queue('password_cookie', $request->password, 120);
@@ -33,6 +36,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($validateCredentials, true)) {
             $usertype = Auth::user()->role;
+            $shortLink = ShortLink::where('user_id', Auth::user()->id)->get();
             return view('Homepage', ['shortLinks' => $shortLink]);
         }
 
