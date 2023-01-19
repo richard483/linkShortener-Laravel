@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
         return redirect('/login');
     }
@@ -36,6 +37,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($validateCredentials, true)) {
             $usertype = Auth::user()->role;
+            if ($usertype == 'admin') {
+                return redirect()->route('admin.index');
+            }
             $shortLink = ShortLink::where('user_id', Auth::user()->id)->get();
             return view('Homepage', ['shortLinks' => $shortLink]);
         }
@@ -75,18 +79,21 @@ class AuthController extends Controller
         }
         return redirect()->route('loginPage');
     }
-    public function ProfileDetail(){
+    public function ProfileDetail()
+    {
         $users = Auth::user();
-        return view('Profile', ['users'=>$users]);
+        return view('Profile', ['users' => $users]);
     }
-    public function getUpdate($id){
+    public function getUpdate($id)
+    {
         $users = Auth::user();
         $find_user = User::find($id);
-        return view('UpdateProfile',['users'=>$users,'find_user'=>$find_user]);
+        return view('UpdateProfile', ['users' => $users, 'find_user' => $find_user]);
     }
-    public function updateProfile(Request $request, $id){
+    public function updateProfile(Request $request, $id)
+    {
         $users = User::all();
-         $request->validate([
+        $request->validate([
 
             'name' => 'required|min:5',
             'email' => 'required|email',
@@ -99,6 +106,6 @@ class AuthController extends Controller
         $edit->gender = $request->gender;
         $edit->dob = $request->date;
         $edit->save();
-        return redirect()->route('Profile',['users'=>$users]);
+        return redirect()->route('Profile', ['users' => $users]);
     }
 }

@@ -24,12 +24,18 @@
                 </li>
             </ul>
             <ul class="d-flex navbar-nav gap-3">
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                @else
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/register">Sign Up Free</a>
                 </li>
+                @endif
             </ul>
 
         </div>

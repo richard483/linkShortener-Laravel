@@ -107,9 +107,11 @@
                 <td>
                     <input type="submit" value="Edit" class="edit">
                     @if ($user->id != Auth::user()->id && $user->trashed() == false)
-                    <a href="{{route('user.delete', $user->id)}}" class="delete">Delete</a>
+                    <a class="delete"
+                        onclick="confirm(' {{  __('Are you sure you want to delete this user?') }}' ) ? document.location.href='{{route('user.delete', $user->id)}}' : '' ">Delete</a>
                     @elseif ($user->trashed())
-                    <a href="{{route('user.restore', $user->id)}}" class="restore">Restore</a>
+                    <a href="{{route('user.restore', $user->id)}}" class="restore"
+                        onclick="alert('Restored users!') ">Restore</a>
                     @endif
                 </td>
             </form>
