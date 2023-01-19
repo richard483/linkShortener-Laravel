@@ -8,38 +8,37 @@
             <div class="card" style="border-radius:20px">
                 <div class="card-body py-5 px-md-5" style="background: #27282F; border-radius: 20px">
                     <div class="text-white mt-2">
-                        <h2>Profile</h2>
+                        <h2 class="mb-3">Short Link Details</h2>
                     </div>
-                    <form>
+                    <form action="{{route('shortLink.update', $shortLink->id)}}" method="POST">
                         @csrf
                         <div class="text-white">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" class="form-control text-white" style="background: #252A37" id="name"
-                                    value="{{ $users->name }}" name="name" readonly>
+                                    value="{{ $shortLink->name }}" name="name" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Email</label>
-                                <input type="text" class="form-control text-white" style="background: #252A37" id="name"
-                                    value="{{ $users->email }}" name="name" readonly>
+                                <label for="shortURL" class="form-label">Short URL</label>
+                                <input type="text" class="form-control text-white" style="background: #252A37"
+                                    id="shortURL" value="{{ $shortLink->short_url }}" name="short_url" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Gender</label>
-                                <input type="text" class="form-control text-white" style="background: #252A37" id="name"
-                                    value="{{ $users->gender }}" name="name" readonly>
+                                <label for="url" class="form-label">Long URL</label>
+                                <input type="text" class="form-control text-white" style="background: #252A37" id="url"
+                                    value="{{ $shortLink->url }}" name="url">
                             </div>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Date of Birth</label>
-                                <input type="text" class="form-control text-white" style="background: #252A37" id="name"
-                                    value="{{ $users->dob }}" name="name" readonly>
+                                <label for="desc" class="form-label">Description</label>
+                                <textarea class="form-control" id="desc" name="description"
+                                    style="height: 16rem; background: #252A37; color: white">{{$shortLink->description}}</textarea>
                             </div>
                             <div>
-                                <a href='/UpdateProfile/{{$users->id}}' class="btn btn-danger"
-                                    style="width: 200px; height:50px">
+                                <button type="submit" class="btn btn-danger" style="width: 200px; height:50px">
                                     <h5>
-                                        Update Profile
+                                        Update
                                     </h5>
-                                </a>
+                                </button>
                             </div>
                         </div>
 
