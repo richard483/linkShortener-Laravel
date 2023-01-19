@@ -13,7 +13,7 @@
         padding: 5px;
         width: 100%;
     }
-    
+
     .field-input:focus {
         outline: 2px solid #E93B30;
     }
@@ -25,7 +25,7 @@
     .check-input:checked {
         accent-color: #E93B30;
     }
-    
+
     .submit {
         background: #E93B30;
         border: none;
@@ -37,20 +37,22 @@
     .submit:hover {
         background: #b93127;
     }
-
 </style>
-<section style="width: 50%; display: flex; flex-direction: column; margin: auto; justify-content: center; align-items: center;">
+<section
+    style="width: 50%; display: flex; flex-direction: column; margin: auto; justify-content: center; align-items: center;">
     <span style="font-size: 5vw;">Sign Up Lot<span style="color: #E93B30">.</span>Nest</span>
     <form action="{{route('register')}}" method="POST">
         @csrf
         <div>
             <label for="name">Name<span class="text-danger">*</span></label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" autofocus class="field-input" value={{old('name') }}>
+            <input type="text" id="name" name="name" placeholder="Enter your name" autofocus class="field-input"
+                value={{old('name') }}>
             <label for="name" class="text-muted">Minimum 5 characters</label>
         </div>
         <div>
             <label for="email">Email<span class="text-danger">*</span></label>
-            <input type="text" id="email" name="email" placeholder="Enter your email" class="field-input" value={{old('email') }}>
+            <input type="text" id="email" name="email" placeholder="Enter your email" class="field-input"
+                value={{old('email') }}>
             <label for="email" class="text-muted">Maximum 255 characters</label>
         </div>
         <div>
@@ -60,7 +62,8 @@
         </div>
         <div>
             <label for="confirmPassword">Confirm Password<span class="text-danger">*</span></label>
-            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" class="field-input">
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password"
+                class="field-input">
         </div>
         <div>
             <label for="gender">Gender<span class="text-danger">*</span></label>
@@ -78,24 +81,35 @@
         </div>
 
         @if ($errors->any())
-            <br>
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        <br>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
         @elseif (session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
         @endif
 
         <br>
-        <button type="submit" value="Register" class="submit">Register</button>
+        <button type="submit" value="Register" class="submit" onclick="(submitForm(this))">Register</button>
         <br> <br>
         <div>Already have an account? <a href="/login">Login here!</a></div>
 </section>
+<script>
+    function submitData(e){
+        return new Promise((resolve, reject)=>{
+            e.form.submit();
+        });
+    }
+    async function submitForm (e) {
+        e.disabled = true;
+        let submit = await submitData(e);
+    }
+</script>
 
 @endsection
