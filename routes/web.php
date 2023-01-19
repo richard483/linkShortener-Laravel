@@ -27,7 +27,7 @@ Route::get('/go/{destination}', ShortLinkController::class . '@go')->name('go');
 
 Route::get('/', Controller::class . '@index')->name('index');
 
-Route::get('/home', ShortLinkController::class.'@home')->name('home');
+Route::get('/home', ShortLinkController::class . '@home')->name('home');
 
 Route::middleware('auth.admin')->group(function () {
     Route::get('/admin', AdminController::class . '@index')->name('admin.index');
@@ -40,13 +40,15 @@ Route::middleware('auth.admin')->group(function () {
 
 
 Route::middleware('auth.member')->group(function () {
+    Route::get('/logout', AuthController::class . '@logout');
     Route::get('/shortLink/search', ShortLinkController::class.'@search');
     Route::get('/shortLink', ShortLinkController::class . '@index')->name('shortLink.index');
     Route::post('/shortLink', ShortLinkController::class . '@store')->name('shortLink.store');
-    Route::get('/logout', AuthController::class . '@logout');
+    Route::get('/shortLink/{id}', ShortLinkController::class . '@detail')->name('shortLink.detail');
+    Route::post('/shortLink/{id}', ShortLinkController::class . '@update')->name('shortLink.update');
 });
-Route::middleware(['auth'])->group(function(){
-    Route::get('/Profile',[AuthController::class,'ProfileDetail'])->name('Profile');
-    Route::get('/UpdateProfile/{id}',[AuthController::class,'getUpdate']);
-    Route::post('/UpdateProfile/{id}',[AuthController::class,'updateProfile']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/Profile', [AuthController::class, 'ProfileDetail'])->name('Profile');
+    Route::get('/UpdateProfile/{id}', [AuthController::class, 'getUpdate']);
+    Route::post('/UpdateProfile/{id}', [AuthController::class, 'updateProfile']);
 });

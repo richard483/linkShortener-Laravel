@@ -13,7 +13,7 @@ class ShortLinkController extends Controller
         $shortLink = ShortLink::where('user_id', Auth::user()->id)->get();
         return view('Homepage', ['shortLinks' => $shortLink]);
     }
-    
+
     public function index()
     {
         return view('create_new');
@@ -56,8 +56,24 @@ class ShortLinkController extends Controller
 
     public function AddNew()
     {
-        
-
     }
 
+    public function detail($id)
+    {
+        $shortLink = ShortLink::where('id', $id)->first();
+
+        return view('Details', ['shortLink' => $shortLink]);
+    }
+
+    public function update(Request $req, $id)
+    {
+        $shortLink = ShortLink::where('id', $id)->first();
+
+        $shortLink->url = $req->url;
+        $shortLink->description = $req->description;
+
+        $shortLink->save();
+
+        return redirect()->back()->with('success', 'Short link updated successfully');
+    }
 }
