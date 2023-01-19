@@ -34,14 +34,16 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/delete/{id}', AdminController::class . '@deleteUser')->name('user.delete');
     Route::get('/restore/{id}', AdminController::class . '@restoreUser')->name('user.restore');
     Route::post('/user/{id}', AdminController::class . '@editUser')->name('user.edit');
+    Route::get('/logout', AuthController::class . '@logout');
     // Route::post('/notify/{id}', AdminController::class . '@notifyUser')->name('user.notify');
 });
 
 
 Route::middleware('auth.member')->group(function () {
+    Route::get('/shortLink/search', ShortLinkController::class.'@search');
     Route::get('/shortLink', ShortLinkController::class . '@index')->name('shortLink.index');
     Route::post('/shortLink', ShortLinkController::class . '@store')->name('shortLink.store');
-    
+    Route::get('/logout', AuthController::class . '@logout');
 });
 Route::middleware(['auth'])->group(function(){
     Route::get('/Profile',[AuthController::class,'ProfileDetail'])->name('Profile');
