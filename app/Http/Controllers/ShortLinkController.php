@@ -51,8 +51,12 @@ class ShortLinkController extends Controller
 
     public function AddNew()
     {
-        
-
     }
 
+    public function detail($id)
+    {
+        $shortLink = ShortLink::where('id', $id)->first();
+
+        return view('Details', ['shortLink' => $shortLink]);
+    }
 }
