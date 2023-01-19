@@ -1,5 +1,5 @@
 @extends('SidebarLayout')
-@section('title', 'Profile')
+@section('title', '{{$shortLink->name}} Details')
 @section('content')
 
 <body>
@@ -34,7 +34,8 @@
                                     style="height: 16rem; background: #252A37; color: white">{{$shortLink->description}}</textarea>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-danger" style="width: 200px; height:50px">
+                                <button type="submit" class="btn btn-danger" style="width: 200px; height:50px"
+                                    onclick="alert('Updated ShortLink Information!') ">
                                     <h5>
                                         Update
                                     </h5>
