@@ -1,6 +1,6 @@
-@extends('template')
+@extends('SidebarLayout')
 
-@section('title', 'Index')
+@section('title', 'Admin')
 
 @section('content')
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\WelcomeEmail;
+use App\Models\ShortLink;
 use App\Models\User;
 use App\Notifications\WelcomeNotification;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-
+        $shortLink = ShortLink::where('user_id', Auth::user()->id)->get();
         $validateCredentials = $request->validate([
             'email' => 'required|email|max:255',
             'password' => 'required',
@@ -32,7 +33,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($validateCredentials, true)) {
             $usertype = Auth::user()->role;
-            return view('index');
+            return view('Homepage', ['shortLinks' => $shortLink]);
         }
 
         return redirect()->back()->withErrors(['auth' => 'Invalid email or password']);
