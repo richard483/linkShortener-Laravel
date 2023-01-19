@@ -11,10 +11,9 @@
                 aria-label="Search" name="search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <div class="dropdown mr-2">
+        <div class="dropdown mr-2 me-2">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
                 <strong>{{ Auth::user()->name }}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
